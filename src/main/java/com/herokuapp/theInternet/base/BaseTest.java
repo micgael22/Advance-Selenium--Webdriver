@@ -6,7 +6,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.*;
 
 public class BaseTest {
-
     protected WebDriver driver;
 
     @Parameters({ "browser" })
@@ -32,6 +31,13 @@ public class BaseTest {
                 driver = new ChromeDriver();
                 break;
         }
+
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         driver.manage().window().maximize();
     }
 
