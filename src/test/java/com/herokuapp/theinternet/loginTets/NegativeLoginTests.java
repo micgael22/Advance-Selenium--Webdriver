@@ -1,5 +1,7 @@
 package com.herokuapp.theinternet.loginTets;
 
+import com.herokuapp.theInternet.base.BaseTest;
+import com.herokuapp.theInternet.base.TestUtilities;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -7,35 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-public class NegativeTests {
-
-	WebDriver driver;
-
-	@Parameters({ "browser" })
-	@BeforeMethod
-	private void setUp(@Optional("chrome") String browser) {
-		// Create driver
-		System.out.println("Create driver: " + browser);
-
-		switch (browser) {
-		case "chrome":
-			System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-			driver = new ChromeDriver();
-			break;
-
-		case "firefox":
-			System.setProperty("webdriver.gecko.driver", "src/main/resources/geckodriver.exe");
-			driver = new FirefoxDriver();
-			break;
-
-		default:
-			System.out.println("Do not know how to start: " + browser + ", starting chrome.");
-		 	System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-			driver = new ChromeDriver();
-			break;
-		}
-		driver.manage().window().maximize();
-	}
+public class NegativeLoginTests extends TestUtilities {
 
 
 	@Parameters({ "username", "password", "expectedMessage" })
@@ -63,13 +37,5 @@ public class NegativeTests {
 		Assert.assertTrue(actualErrorMessage.contains(expectedErrorMessage),
 				"actualErrorMessage does not contain expectedErrorMessage\nexpectedErrorMessage: "
 						+ expectedErrorMessage + "\nactualErrorMessage: " + actualErrorMessage);
-	}
-
-
-	@AfterMethod
-	private void tearDown() {
-		System.out.println("Close driver");
-		// Close browser
-		driver.quit();
 	}
 }

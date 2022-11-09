@@ -1,31 +1,18 @@
 package com.herokuapp.theinternet.loginTets;
 
+import com.herokuapp.theInternet.base.TestUtilities;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class PositiveTests {
-
-//	@Deprecated
-//	public void WebDriverWait(WebDriver driver, long timeoutInSeconds) {
-//		this.(driver, Duration.ofSeconds(timeoutInSeconds));
-//	}
+public class PositiveLoginTests extends TestUtilities {
 
 	@Test
-	public void logInTest() {
+	public void logInTest() throws InterruptedException {
 		System.out.println("Starting logIn test");
-
-		// Create driver
-		System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
-		driver.manage().window().maximize();
 
 		// open main page
 		String url = "http://the-internet.herokuapp.com/";
@@ -41,6 +28,8 @@ public class PositiveTests {
 
 //		WebDriverWait wait = new WebDriverWait(driver, 10);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+		sleep(3000);
 
 		// push log in button
 		WebElement logInButton = driver.findElement(By.className("radius"));
@@ -63,7 +52,5 @@ public class PositiveTests {
 				"actualSuccessMessage does not contain expectedSuccessMessage\nexpectedSuccessMessage: "
 						+ expectedSuccessMessage + "\nactualSuccessMessage: " + actualSuccessMessage);
 
-		// Close browser
-		driver.quit();
 	}
 }
