@@ -1,4 +1,4 @@
-package com.herokuapp.theinternet.loginTets;
+package com.herokuapp.theinternet.loginTest;
 
 import com.herokuapp.theInternet.base.TestUtilities;
 import org.openqa.selenium.By;

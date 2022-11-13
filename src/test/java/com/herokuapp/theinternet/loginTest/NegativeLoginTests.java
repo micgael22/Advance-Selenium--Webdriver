@@ -1,11 +1,7 @@
-package com.herokuapp.theinternet.loginTets;
+package com.herokuapp.theinternet.loginTest;
 
-import com.herokuapp.theInternet.base.BaseTest;
 import com.herokuapp.theInternet.base.TestUtilities;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -15,7 +11,7 @@ public class NegativeLoginTests extends TestUtilities {
 	@Parameters({ "username", "password", "expectedMessage" })
 	@Test(priority = 1)
 	public void negativeTest(String username, String password, String expectedErrorMessage) {
-		System.out.println("Starting negativeTest");
+		System.out.println("Starting negativeTest ---------------------------------->");
 
 		// open main page
 		String url = "http://the-internet.herokuapp.com/";
@@ -37,5 +33,7 @@ public class NegativeLoginTests extends TestUtilities {
 		Assert.assertTrue(actualErrorMessage.contains(expectedErrorMessage),
 				"actualErrorMessage does not contain expectedErrorMessage\nexpectedErrorMessage: "
 						+ expectedErrorMessage + "\nactualErrorMessage: " + actualErrorMessage);
+
+		System.out.println("END NEGATIVE TEST ---------------------------------->");
 	}
 }
