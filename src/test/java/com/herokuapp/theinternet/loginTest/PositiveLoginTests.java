@@ -12,12 +12,12 @@ public class PositiveLoginTests extends TestUtilities {
 
 	@Test
 	public void logInTest() throws InterruptedException {
-		System.out.println("Starting logIn test");
+		System.out.println("STARTING POSITIVE LOGIN TEST ---------------------------------->");
 
 		// open main page
 		String url = "http://the-internet.herokuapp.com/";
 		driver.get(url);
-		System.out.println("Main page is opened.");
+		log.info("Main page is opened.");
 
 		// Click on Form Authentication link
 		driver.findElement(By.linkText("Form Authentication")).click();
@@ -52,5 +52,6 @@ public class PositiveLoginTests extends TestUtilities {
 				"actualSuccessMessage does not contain expectedSuccessMessage\nexpectedSuccessMessage: "
 						+ expectedSuccessMessage + "\nactualSuccessMessage: " + actualSuccessMessage);
 
+		System.out.println("ENDING POSITIVE LOGIN TEST ---------------------------------->");
 	}
 }

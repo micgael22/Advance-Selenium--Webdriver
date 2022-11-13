@@ -7,16 +7,15 @@ import org.testng.annotations.*;
 
 public class NegativeLoginTests extends TestUtilities {
 
-
 	@Parameters({ "username", "password", "expectedMessage" })
 	@Test(priority = 1)
 	public void negativeTest(String username, String password, String expectedErrorMessage) {
-		System.out.println("Starting negativeTest ---------------------------------->");
+		System.out.println("STARTING NEGATIVE LOGIN TEST ---------------------------------->");
 
 		// open main page
 		String url = "http://the-internet.herokuapp.com/";
 		driver.get(url);
-		System.out.println("Main page is opened.");
+		log.info("Main page is opened.");
 
 		// Click on Form Authentication link
 		driver.findElement(By.linkText("Form Authentication")).click();
@@ -34,6 +33,6 @@ public class NegativeLoginTests extends TestUtilities {
 				"actualErrorMessage does not contain expectedErrorMessage\nexpectedErrorMessage: "
 						+ expectedErrorMessage + "\nactualErrorMessage: " + actualErrorMessage);
 
-		System.out.println("END NEGATIVE TEST ---------------------------------->");
+		System.out.println("ENDING NEGATIVE LOGIN TEST ---------------------------------->");
 	}
 }

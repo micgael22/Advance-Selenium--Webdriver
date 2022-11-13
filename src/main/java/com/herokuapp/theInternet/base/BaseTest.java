@@ -1,16 +1,25 @@
 package com.herokuapp.theInternet.base;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
+import org.testng.ITestContext;
 import org.testng.annotations.*;
 
 public class BaseTest {
     protected WebDriver driver;
+    protected Logger log;
+
     @Parameters({ "browser" })
     @BeforeMethod(alwaysRun = true)
-    public void setUp(@Optional("chrome") String browser) {
+    public void setUp(@Optional("chrome") String browser, ITestContext ctx) {
 
         System.out.println("ON SETUP -------------------------->");
-        BrowserDriverFactory factory = new BrowserDriverFactory(browser);
+
+        String testName = ctx.getCurrentXmlTest().getName();
+        log = LogManager.getLogger(testName);
+
+        BrowserDriverFactory factory = new BrowserDriverFactory(browser ,log);
         driver = factory.createDriver();
 
         try {
@@ -25,7 +34,7 @@ public class BaseTest {
 
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
-        System.out.println("Close driver");
+        log.info("CLOSE DRIVER ----------------------->");
         // Close browser
         driver.quit();
     }
