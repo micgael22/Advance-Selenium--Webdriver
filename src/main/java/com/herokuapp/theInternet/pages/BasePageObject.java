@@ -52,6 +52,11 @@ public class BasePageObject {
         wait.until(condition);
     }
 
+    //Get url from current page from browser
+    public String getCurrentUrl() {
+        return driver.getCurrentUrl();
+    }
+
     //Get source of current page
     public String getCurrentPageSource() {
         return driver.getPageSource();
