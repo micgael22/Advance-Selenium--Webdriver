@@ -22,7 +22,7 @@ public class WelcomePageObject extends BasePageObject {
     }
 
     //Open LoginPage by Clicking on Form Authentication Link
-    public LoginPage clickFormAuthentication() {
+    public LoginPage clickFormAuthenticationLink() {
         log.info("Clicking Form Authentication link on Welcome Page");
         click(formAuthenticationLinkLocator);
         return new LoginPage(driver, log);

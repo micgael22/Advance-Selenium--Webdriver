@@ -17,7 +17,6 @@ public class BasePageObject {
     protected Logger log;
 
     public BasePageObject(WebDriver driver, Logger log) {
-
         this.driver = driver;
         this.log = log;
 
@@ -45,6 +44,11 @@ public class BasePageObject {
         find(locator).sendKeys(text);
     }
 
+    //Get url from current page from browser
+    public String getCurrentUrl() {
+        return driver.getCurrentUrl();
+    }
+
     //Wait for specific ExpectedCondition for the given amount of time in secs
     protected void waitFor(ExpectedCondition<WebElement> condition, Duration timeOut) {
         timeOut = timeOut != null ? timeOut : Duration.ofSeconds(30);
@@ -52,10 +56,7 @@ public class BasePageObject {
         wait.until(condition);
     }
 
-    //Get url from current page from browser
-    public String getCurrentUrl() {
-        return driver.getCurrentUrl();
-    }
+
 
     //Get source of current page
     public String getCurrentPageSource() {
