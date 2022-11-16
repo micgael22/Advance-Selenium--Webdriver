@@ -34,8 +34,6 @@ public class PositiveLoginTests extends TestUtilities {
 
 		// log out button is visible
 		Assert.assertTrue(secureAreaP.isLogOutButtonVisible(), "LogOut Button is not Visible");
-//		Assert.assertTrue(driver.findElement(By.xpath("//a[@class='button secondary radius']")).isDisplayed(),
-//				"logOutButton is not visible.");
 
 		// Successful log in message
 		String expectedSuccessMessage = "You logged into a secure area!";
