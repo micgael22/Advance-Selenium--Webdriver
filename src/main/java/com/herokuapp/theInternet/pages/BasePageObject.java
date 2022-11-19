@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public class BasePageObject {
 
@@ -19,7 +20,6 @@ public class BasePageObject {
     public BasePageObject(WebDriver driver, Logger log) {
         this.driver = driver;
         this.log = log;
-
     }
 
     //Open Page with given url
@@ -32,15 +32,20 @@ public class BasePageObject {
         return driver.findElement(locator);
     }
 
+    //Find all elements using given locator
+    protected List<WebElement> findAll (By locator) {
+        return driver.findElements(locator);
+    }
+
     //Click on element with given locator when its visible
     protected void click(By locator) {
-        waitForVisibilityOf( locator, Duration.ofSeconds(5));
+        waitForVisibilityOf( locator, Duration.ofSeconds(10));
         find(locator).click();
     }
 
     //Type given text into element with given locator
     protected void type(String text, By locator) {
-        waitForVisibilityOf(locator, Duration.ofSeconds(5));
+        waitForVisibilityOf(locator, Duration.ofSeconds(10));
         find(locator).sendKeys(text);
     }
 
@@ -55,8 +60,6 @@ public class BasePageObject {
         WebDriverWait wait = new WebDriverWait(driver, timeOut);
         wait.until(condition);
     }
-
-
 
     //Get source of current page
     public String getCurrentPageSource() {

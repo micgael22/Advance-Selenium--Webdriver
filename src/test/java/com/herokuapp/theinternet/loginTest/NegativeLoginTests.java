@@ -1,6 +1,9 @@
 package com.herokuapp.theinternet.loginTest;
 
 import com.herokuapp.theInternet.base.TestUtilities;
+import com.herokuapp.theInternet.pages.LoginPage;
+import com.herokuapp.theInternet.pages.SecureAreaPage;
+import com.herokuapp.theInternet.pages.WelcomePageObject;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -12,26 +15,30 @@ public class NegativeLoginTests extends TestUtilities {
 	public void negativeTest(String username, String password, String expectedErrorMessage) {
 		System.out.println("STARTING NEGATIVE LOGIN TEST ---------------------------------->");
 
+		log.info("STARTING NEGATIVE LOGIN TEST");
+
 		// open main page
-		String url = "http://the-internet.herokuapp.com/";
-		driver.get(url);
-		log.info("Main page is opened.");
+//		String url = "http://the-internet.herokuapp.com/";
+//		driver.get(url);
+//		log.info("Main page is opened.");
+		// New
+		WelcomePageObject welcomeP = new WelcomePageObject(driver, log);
+		welcomeP.openPage();
 
 		// Click on Form Authentication link
-		driver.findElement(By.linkText("Form Authentication")).click();
+		LoginPage loginP = welcomeP.clickFormAuthenticationLink();
 
-		// enter username and password
-		driver.findElement(By.id("username")).sendKeys(username);
-		driver.findElement(By.id("password")).sendKeys(password);
+		//execute negative logIn
+		loginP.negativeLogIn(username, password);
 
-		// push log in button
-		driver.findElement(By.className("radius")).click();
+		//wait for error message
+		loginP.waitForErrorMessage();
+		String message = loginP.getErrorMessageText();
+
 
 		// Verification
 		String actualErrorMessage = driver.findElement(By.id("flash")).getText();
-		Assert.assertTrue(actualErrorMessage.contains(expectedErrorMessage),
-				"actualErrorMessage does not contain expectedErrorMessage\nexpectedErrorMessage: "
-						+ expectedErrorMessage + "\nactualErrorMessage: " + actualErrorMessage);
+		Assert.assertTrue(message.contains(expectedErrorMessage), "Message doesn't contain expected text.");
 
 		System.out.println("ENDING NEGATIVE LOGIN TEST ---------------------------------->");
 	}
