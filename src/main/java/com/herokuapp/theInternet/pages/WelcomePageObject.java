@@ -10,8 +10,8 @@ public class WelcomePageObject extends BasePageObject {
     private By formAuthenticationLinkLocator = new By.ByLinkText("Form Authentication");
     private By checkboxesLinkLocator = By.linkText("Checkboxes");
     private By dropdownLinkLocator = By.linkText("Dropdown");
-
     private By javaScriptAlertsLinkLocator = By.linkText("JavaScript Alerts");
+    private By multipleWindowsLinkLocator = By.linkText("Multiple Windows");
 
     public WelcomePageObject(WebDriver driver, Logger log) {
         super(driver, log);
@@ -50,5 +50,12 @@ public class WelcomePageObject extends BasePageObject {
         log.info("Clicking JavaScript Alerts link on Welcome Page");
         click(javaScriptAlertsLinkLocator);
         return new JavaScriptAlertsPage(driver, log);
+    }
+
+    //open window new window tab by clicking on
+    public WindowsPage01 clickMultipleWindowsLink() {
+        log.info("Clicking Multiple Windows link on Welcome Page");
+        click(multipleWindowsLinkLocator);
+        return new WindowsPage01(driver, log);
     }
 }
