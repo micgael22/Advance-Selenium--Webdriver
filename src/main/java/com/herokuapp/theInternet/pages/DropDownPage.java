@@ -25,10 +25,10 @@ public class DropDownPage extends BasePageObject{
         // dropdown.selectByIndex(i);
 
         // #2
-        //dropdown.selectByValue("" + i);
+        dropdown.selectByValue("" + i);
 
         // #3
-         dropdown.selectByVisibleText("Option " + i);
+          //dropdown.selectByVisibleText("Option " + i);
     }
 
     // This method returns selected option in dropdown as a string
