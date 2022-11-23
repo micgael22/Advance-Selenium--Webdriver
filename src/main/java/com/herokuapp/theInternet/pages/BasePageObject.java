@@ -2,6 +2,7 @@ package com.herokuapp.theInternet.pages;
 
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -115,5 +116,19 @@ public class BasePageObject {
     // Switch to iFrame using its locator
     protected void switchToFrame(By frameLocator) {
         driver.switchTo().frame(find(frameLocator));
+    }
+
+    //This method will work on any page But need to find element
+    //Press Key on locator
+    protected void pressKey(By locator, Keys key) {
+        find(locator).sendKeys(key);
+    }
+
+    //This method will work on any page
+    //Press Key using Actions class
+    public void pressKeyWithActions(Keys key) {
+        log.info("Pressing " + key.name() + " using Actions class");
+        Actions action = new Actions(driver);
+        action.sendKeys(key).build().perform();
     }
 }
