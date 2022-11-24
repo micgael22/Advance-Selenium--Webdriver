@@ -2,19 +2,24 @@ package com.herokuapp.theinternet.editorTests;
 
 import com.herokuapp.theInternet.base.TestUtilities;
 import com.herokuapp.theInternet.pages.EditorPage;
-import com.herokuapp.theInternet.pages.WelcomePageObject;
+import com.herokuapp.theInternet.pages.WelcomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class EditorTest extends TestUtilities {
 
     @Test
-    public void defaultEditorValueTest() {
+    public void defaultEditorValueTest() throws InterruptedException {
         log.info("Starting defaultEditorValueTest");
 
         // open main page
-        WelcomePageObject welcomeP = new WelcomePageObject(driver, log);
+        WelcomePage welcomeP = new WelcomePage(driver, log);
         welcomeP.openPage();
+
+        //Scroll to the bottom
+        sleep(5000);
+        welcomeP.scrollToBottom();
+        sleep(5000);
 
         // Click on WYSIWYG Editor link
         EditorPage editorPage = welcomeP.clickWYSIWYGEditorLink();
