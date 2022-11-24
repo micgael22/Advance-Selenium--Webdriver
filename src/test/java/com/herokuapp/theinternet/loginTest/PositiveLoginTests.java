@@ -1,11 +1,9 @@
 package com.herokuapp.theinternet.loginTest;
 
-import org.apache.logging.log4j.Logger;
 import com.herokuapp.theInternet.base.TestUtilities;
 import com.herokuapp.theInternet.pages.LoginPage;
 import com.herokuapp.theInternet.pages.SecureAreaPage;
-import com.herokuapp.theInternet.pages.WelcomePageObject;
-import org.openqa.selenium.By;
+import com.herokuapp.theInternet.pages.WelcomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -19,7 +17,7 @@ public class PositiveLoginTests extends TestUtilities {
 		log.info("Starting login test");
 
 		// open main page
-		WelcomePageObject welcomeP = new WelcomePageObject(driver, log);
+		WelcomePage welcomeP = new WelcomePage(driver, log);
 		welcomeP.openPage();
 
 		// Click on Form Authentication link

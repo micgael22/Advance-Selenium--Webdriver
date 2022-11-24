@@ -2,7 +2,7 @@ package com.herokuapp.theinternet.dropdownTests;
 
 import com.herokuapp.theInternet.base.TestUtilities;
 import com.herokuapp.theInternet.pages.DropDownPage;
-import com.herokuapp.theInternet.pages.WelcomePageObject;
+import com.herokuapp.theInternet.pages.WelcomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 public class DropDownTest extends TestUtilities {
@@ -12,7 +12,7 @@ public class DropDownTest extends TestUtilities {
         log.info("Starting optionTwoTest ------->");
 
         //Open main page
-        WelcomePageObject welcomeP = new WelcomePageObject(driver, log);
+        WelcomePage welcomeP = new WelcomePage(driver, log);
         welcomeP.openPage();
 
         //click on Dropdown link

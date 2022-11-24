@@ -2,8 +2,7 @@ package com.herokuapp.theinternet.loginTest;
 
 import com.herokuapp.theInternet.base.TestUtilities;
 import com.herokuapp.theInternet.pages.LoginPage;
-import com.herokuapp.theInternet.pages.SecureAreaPage;
-import com.herokuapp.theInternet.pages.WelcomePageObject;
+import com.herokuapp.theInternet.pages.WelcomePage;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -22,7 +21,7 @@ public class NegativeLoginTests extends TestUtilities {
 //		driver.get(url);
 //		log.info("Main page is opened.");
 		// New
-		WelcomePageObject welcomeP = new WelcomePageObject(driver, log);
+		WelcomePage welcomeP = new WelcomePage(driver, log);
 		welcomeP.openPage();
 
 		// Click on Form Authentication link
