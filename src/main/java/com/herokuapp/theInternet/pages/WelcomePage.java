@@ -54,10 +54,10 @@ public class WelcomePage extends BasePageObject {
     }
 
     //open window new window tab by clicking on
-    public WindowsPage01 clickMultipleWindowsLink() {
+    public WindowPage01 clickMultipleWindowsLink() {
         log.info("Clicking Multiple Windows link on Welcome Page");
         click(multipleWindowsLinkLocator);
-        return new WindowsPage01(driver, log);
+        return new WindowPage01(driver, log);
     }
 
     //clicking on editor link *WYSIWYG
