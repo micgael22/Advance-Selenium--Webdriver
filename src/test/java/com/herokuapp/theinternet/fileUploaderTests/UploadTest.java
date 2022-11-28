@@ -7,16 +7,16 @@ import org.testng.annotations.Test;
 
 public class UploadTest extends TestUtilities {
 
-    @Test
-    public void imageUploadTest() {
-        log.info("Starting imageUploadTest");
+    @Test(dataProvider = "files")
+    public void fileUploadTest(int no, String fileName) {
+        log.info("Starting fileUploadTest #" + no + " for " + fileName);
 
         // open File Uploader Page
         FileUploaderPage fileUploaderPage = new FileUploaderPage(driver, log);
         fileUploaderPage.openPage();
 
         // Select file
-        String fileName = "logo.png";
+//        String fileName = "logo.png";
         fileUploaderPage.selectFile(fileName);
 
         // Push upload button
@@ -29,5 +29,4 @@ public class UploadTest extends TestUtilities {
         Assert.assertTrue(fileNames.contains(fileName),
                 "Our file (" + fileName + ") is not one of the uploaded (" + fileNames + ")");
     }
-
 }
