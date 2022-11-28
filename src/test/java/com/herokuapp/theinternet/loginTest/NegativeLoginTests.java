@@ -1,5 +1,6 @@
 package com.herokuapp.theinternet.loginTest;
 
+import com.herokuapp.theInternet.base.CsvDataProviders;
 import com.herokuapp.theInternet.base.TestUtilities;
 import com.herokuapp.theInternet.pages.LoginPage;
 import com.herokuapp.theInternet.pages.WelcomePage;
@@ -7,20 +8,22 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import java.util.Map;
+
 public class NegativeLoginTests extends TestUtilities {
 
-	@Parameters({ "username", "password", "expectedMessage" })
-	@Test(priority = 1)
-	public void negativeTest(String username, String password, String expectedErrorMessage) {
-		System.out.println("STARTING NEGATIVE LOGIN TEST ---------------------------------->");
+	@Test(priority = 1, dataProvider = "csvReader", dataProviderClass = CsvDataProviders.class)
+	public void negativeLoginTest(Map<String, String> testData) {
 
-		log.info("STARTING NEGATIVE LOGIN TEST");
+		// Data
+		String no = testData.get("no");
+		String username  = testData.get("username");
+		String password = testData.get("password");
+		String expectedErrorMessage = testData.get("expectedMessage");
+		String description = testData.get("description");
 
-		// open main page
-//		String url = "http://the-internet.herokuapp.com/";
-//		driver.get(url);
-//		log.info("Main page is opened.");
-		// New
+		log.info("Starting negativeLogInTest #" + no + " for " + description);
+
 		WelcomePage welcomeP = new WelcomePage(driver, log);
 		welcomeP.openPage();
 
@@ -34,9 +37,7 @@ public class NegativeLoginTests extends TestUtilities {
 		loginP.waitForErrorMessage();
 		String message = loginP.getErrorMessageText();
 
-
 		// Verification
-		String actualErrorMessage = driver.findElement(By.id("flash")).getText();
 		Assert.assertTrue(message.contains(expectedErrorMessage), "Message doesn't contain expected text.");
 
 		System.out.println("ENDING NEGATIVE LOGIN TEST ---------------------------------->");
