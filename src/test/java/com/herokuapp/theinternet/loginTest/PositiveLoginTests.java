@@ -12,19 +12,21 @@ public class PositiveLoginTests extends TestUtilities {
 
 	@Test
 	public void logInTest() throws InterruptedException {
-		System.out.println("STARTING POSITIVE LOGIN TEST ---------------------------------->");
 
-		log.info("Starting login test");
+		log.info("STARTING POSITIVE LOGIN TEST --------------->");
 
 		// open main page
 		WelcomePage welcomeP = new WelcomePage(driver, log);
 		welcomeP.openPage();
+		takeScreenshot("WelcomePage opened");
 
 		// Click on Form Authentication link
 		LoginPage loginP = welcomeP.clickFormAuthenticationLink();
+		takeScreenshot("LoginPage opened");
 
 		//execute logIn
 		SecureAreaPage secureAreaP = loginP.logIn("tomsmith", "SuperSecretPassword!");
+		takeScreenshot("SecureAreaPage opened");
 
 		// verifications
 		// new page url is expected
@@ -40,6 +42,6 @@ public class PositiveLoginTests extends TestUtilities {
 				"actualSuccessMessage does not contain expectedSuccessMessage\nexpectedSuccessMessage: "
 						+ expectedSuccessMessage + "\nactualSuccessMessage: " + actualSuccessMessage);
 
-		System.out.println("ENDING POSITIVE LOGIN TEST ---------------------------------->");
+		System.out.println("ENDING POSITIVE LOGIN TEST ------------------->");
 	}
 }
