@@ -11,7 +11,6 @@ public class AlertsTests extends TestUtilities {
 
     @Test
     public void jsAlertTest() throws InterruptedException {
-        log.info("Starting jsAlertTest");
         SoftAssert softAssert = new SoftAssert();
 
         // open main page
@@ -49,7 +48,6 @@ public class AlertsTests extends TestUtilities {
 
     @Test
     public void jsDismissTest() throws InterruptedException{
-        log.info("Starting jsDismissTest");
         SoftAssert softAssert = new SoftAssert();
 
         // open main page
@@ -87,7 +85,6 @@ public class AlertsTests extends TestUtilities {
 
     @Test
     public void jsPromptTest() throws InterruptedException {
-        log.info("Starting jsDismissTest");
         SoftAssert softAssert = new SoftAssert();
 
         // open main page
