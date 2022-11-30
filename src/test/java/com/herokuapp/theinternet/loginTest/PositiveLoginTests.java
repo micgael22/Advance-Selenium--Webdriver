@@ -4,6 +4,7 @@ import com.herokuapp.theInternet.base.TestUtilities;
 import com.herokuapp.theInternet.pages.LoginPage;
 import com.herokuapp.theInternet.pages.SecureAreaPage;
 import com.herokuapp.theInternet.pages.WelcomePage;
+import org.openqa.selenium.Cookie;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -22,9 +23,20 @@ public class PositiveLoginTests extends TestUtilities {
 		LoginPage loginP = welcomeP.clickFormAuthenticationLink();
 		takeScreenshot("LoginPage opened");
 
+		// Add new cookie
+		Cookie ck = new Cookie("username", "tomsmith",
+				"the-internet.herokuapp.com", "/", null);
+		loginP.setCookie(ck);
+
 		//execute logIn
 		SecureAreaPage secureAreaP = loginP.logIn("tomsmith", "SuperSecretPassword!");
 		takeScreenshot("SecureAreaPage opened");
+
+		// Get cookies
+		String username = secureAreaP.getCookie("username");
+		log.info("Username cookie: " + username);
+		String session = secureAreaP.getCookie("rack.session");
+		log.info("Session cookie: " + session);
 
 		// verifications
 		// new page url is expected
