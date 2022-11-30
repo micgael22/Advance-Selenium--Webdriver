@@ -15,17 +15,17 @@ public class TestListeners implements ITestListener {
     @Override
     public void onTestStart(ITestResult result) {
         this.testMethodName = result.getMethod().getMethodName();
-        log.info("[Starting " + testMethodName + "]");
+        log.info("[------Starting " + testMethodName + " ------]");
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        log.info("[Test " + testMethodName + " passed]");
+        log.info("[------Test " + testMethodName + " passed ------]");
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-        log.info("[Test " + testMethodName + " failed]");
+        log.info("[------Test " + testMethodName + " failed------]");
     }
 
     @Override
@@ -42,11 +42,11 @@ public class TestListeners implements ITestListener {
     public void onStart(ITestContext context) {
         this.testName = context.getCurrentXmlTest().getName();
         this.log = LogManager.getLogger(testName);
-        log.info("[TEST " + testName + " STARTED]");
+        log.info("[------TEST " + testName + " STARTED------]");
     }
 
     @Override
     public void onFinish(ITestContext context) {
-        log.info("[ALL " + testName + " FINISHED]");
+        log.info("[------ALL " + testName + " FINISHED------]");
     }
 }
