@@ -7,6 +7,7 @@ import org.testng.ITestContext;
 import org.testng.annotations.*;
 
 import java.lang.reflect.Method;
+@Listeners({com.herokuapp.theInternet.base.TestListeners.class})
 
 public class BaseTest {
     protected WebDriver driver;
@@ -19,7 +20,7 @@ public class BaseTest {
     @BeforeMethod(alwaysRun = true)
     public void setUp(Method method, @Optional("chrome") String browser, ITestContext ctx) {
 
-        System.out.println("ON SETUP -------------------------->");
+        System.out.println("ON SETUP ---------]");
 
         String testName = ctx.getCurrentXmlTest().getName();
         log = LogManager.getLogger(testName);
