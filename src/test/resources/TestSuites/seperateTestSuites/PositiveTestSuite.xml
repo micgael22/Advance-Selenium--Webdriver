@@ -1,8 +1,15 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="PositiveTestSuite" verbose="1">
-	
-	<test name="PositiveLogin Test">
+
+	<test name="PositiveLogInTest-CCWithoutP">
+		<classes>
+			<class name="com.herokuapp.theinternet.loginTest.PositiveLoginTests" />
+		</classes>
+	</test>
+
+	<test name="PositiveLogInTest-CCWithP">
+		<parameter name="chromeProfile" value="ChromeProfile"></parameter>
 		<classes>
 			<class name="com.herokuapp.theinternet.loginTest.PositiveLoginTests" />
 		</classes>
