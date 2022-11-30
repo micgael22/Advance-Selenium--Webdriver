@@ -20,7 +20,7 @@ public class BaseTest {
     @BeforeMethod(alwaysRun = true)
     public void setUp(Method method, @Optional("chrome") String browser, ITestContext ctx) {
 
-        System.out.println("ON SETUP ---------]");
+        System.out.println("[---------ON SETUP ---------]");
 
         String testName = ctx.getCurrentXmlTest().getName();
         log = LogManager.getLogger(testName);
@@ -40,12 +40,13 @@ public class BaseTest {
         this.testName = testName;
         this.testMethodName = method.getName();
 
-        System.out.println("SETUP DONE-------------------------->");
+        System.out.println("[---------SETUP DONE---------]");
+
     }
 
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
-        log.info("CLOSE DRIVER ----------------------->");
+        log.info("[---------CLOSE DRIVER & TEARDOWN---------]");
         // Close browser
         driver.quit();
     }
