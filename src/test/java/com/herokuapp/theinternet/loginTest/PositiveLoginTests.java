@@ -13,8 +13,6 @@ public class PositiveLoginTests extends TestUtilities {
 	@Test
 	public void logInTest() throws InterruptedException {
 
-		log.info("STARTING POSITIVE LOGIN TEST --------------->");
-
 		// open main page
 		WelcomePage welcomeP = new WelcomePage(driver, log);
 		welcomeP.openPage();
@@ -42,6 +40,5 @@ public class PositiveLoginTests extends TestUtilities {
 				"actualSuccessMessage does not contain expectedSuccessMessage\nexpectedSuccessMessage: "
 						+ expectedSuccessMessage + "\nactualSuccessMessage: " + actualSuccessMessage);
 
-		System.out.println("ENDING POSITIVE LOGIN TEST ------------------->");
 	}
 }
