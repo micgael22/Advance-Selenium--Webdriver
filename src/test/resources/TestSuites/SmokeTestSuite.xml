@@ -3,10 +3,27 @@
 
 <!--IMPORTANT TEST SUITES-->
 <suite name="SmokeTestSuite" verbose="1">
+
+    <listeners>
+        <listener class-name="com.herokuapp.theInternet.base.TestListeners"></listener>
+    </listeners>
+
     <test name="PositiveLoginTest">
         <classes>
             <class name="com.herokuapp.theinternet.loginTest.PositiveLoginTests">
             </class>
+        </classes>
+    </test>
+
+    <test name="AlertsTests">
+        <classes>
+            <class name="com.herokuapp.theinternet.alertsTests.AlertsTests" />
+        </classes>
+    </test>
+
+    <test name="UploadTests">
+        <classes>
+            <class name="com.herokuapp.theinternet.fileUploaderTests.UploadTest" />
         </classes>
     </test>
 </suite>
