@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="CheckboxesTestSuite" verbose="1">
+
+    <test name="CheckboxesTests-Android">
+        <parameter name="deviceName" value="iPad Mini"></parameter>
+        <classes>
+            <class name="com.herokuapp.theinternet.checkBoxesPageTests.CheckBoxesTests" />
+        </classes>
+    </test>
+
+    <test name="CheckboxesTests-iOS">
+        <parameter name="deviceName" value="iPhone SE"></parameter>
+        <classes>
+            <class name="com.herokuapp.theinternet.checkBoxesPageTests.CheckBoxesTests" />
+        </classes>
+    </test>
+
+</suite>
