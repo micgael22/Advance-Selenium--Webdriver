@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<!--Headless browsers is not mostly used, UNLESS you really want to use is-->
+<!--& screenshots is not going to work on headless browsers-->
+
+<suite name="UploadTestSuite" verbose="1">
+    <test name="UploadTest-CH">
+        <parameter name="browser" value="chromeheadless"></parameter>
+        <classes>
+            <class name="com.herokuapp.theinternet.fileUploaderTests.UploadTest" />
+        </classes>
+    </test>
+
+    <test name="UploadTests-FF">
+        <parameter name="browser" value="firefoxheadless"></parameter>
+        <classes>
+            <class name="com.herokuapp.theinternet.fileUploaderTests.UploadTest" />
+        </classes>
+    </test>
+
+    <test name="UploadTest-PH">
+        <parameter name="browser" value="phantomjs"></parameter>
+        <classes>
+            <class name="com.herokuapp.theinternet.fileUploaderTests.UploadTest" />
+        </classes>
+    </test>
+
+    <test name="UploadTest-UN">
+        <parameter name="browser" value="htmlunit"></parameter>
+        <classes>
+            <class name="com.herokuapp.theinternet.fileUploaderTests.UploadTest" />
+        </classes>
+    </test>
+</suite>
