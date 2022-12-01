@@ -16,19 +16,21 @@ public class BaseTest {
     protected String testName;
     protected String testMethodName;
 
-    @Parameters({ "browser", "chromeProfile" })
+    @Parameters({ "browser", "chromeProfile", "deviceName" })
     @BeforeMethod(alwaysRun = true)
-    public void setUp(Method method, @Optional("chrome") String browser, @Optional String profile, ITestContext ctx) {
+    public void setUp(Method method, @Optional("chrome") String browser, @Optional String profile,
+                      @Optional String deviceName, ITestContext ctx) {
 
         System.out.println("[---------ON SETUP ---------]");
 
         String testName = ctx.getCurrentXmlTest().getName();
         log = LogManager.getLogger(testName);
 
-        BrowserDriverFactory factory = new BrowserDriverFactory(browser ,log);
-
+        BrowserDriverFactory factory = new BrowserDriverFactory(browser, log);
         if (profile != null) {
             driver = factory.createChromeWithProfile(profile);
+        } else if (deviceName != null) {
+            driver = factory.createChromeWithMobileEmulation(deviceName);
         } else {
             driver = factory.createDriver();
         }
