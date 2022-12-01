@@ -6,6 +6,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class BrowserDriverFactory {
 
     private ThreadLocal<WebDriver> driver = new ThreadLocal<>();
@@ -46,6 +49,18 @@ public class BrowserDriverFactory {
         log.info("Starting chrome driver with profile: " + profile);
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("user-data-dir=src/main/resources/profiles/" + profile);
+
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+        driver.set(new ChromeDriver(chromeOptions));
+        return driver.get();
+    }
+
+    public WebDriver createChromeWithMobileEmulation(String deviceName) {
+        log.info("Starting driver with " + deviceName + " emulation]");
+        Map<String, String> mobileEmulation = new HashMap<>();
+        mobileEmulation.put("deviceName", deviceName);
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
 
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         driver.set(new ChromeDriver(chromeOptions));
