@@ -12,18 +12,18 @@ public class HorizontalSliderTest extends TestUtilities {
         log.info("Starting sliderTest");
 
         // Open HorizontalSliderPage
-        HorizontalSliderPage horizontalSliderPage = new HorizontalSliderPage(driver, log);
-        horizontalSliderPage.openPage();
+        HorizontalSliderPage horizontalSliderP = new HorizontalSliderPage(driver, log);
+        horizontalSliderP.openPage();
 
         String value = "3.5";
 
         // Set slider value
         sleep(2000);
-        horizontalSliderPage.setSliderTo(value);
+        horizontalSliderP.setSliderTo(value);
         sleep(2000);
 
         // Verify slider value
-        String sliderValue = horizontalSliderPage.getSliderValue();
+        String sliderValue = horizontalSliderP.getSliderValue();
         Assert.assertTrue(sliderValue.equals(value), "Range is not correct. It is: " + sliderValue);
     }
 

@@ -3,7 +3,6 @@ package com.herokuapp.theinternet.alertsTests;
 import com.herokuapp.theInternet.base.TestUtilities;
 import com.herokuapp.theInternet.pages.JavaScriptAlertsPage;
 import com.herokuapp.theInternet.pages.WelcomePage;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -14,30 +13,30 @@ public class AlertsTests extends TestUtilities {
         SoftAssert softAssert = new SoftAssert();
 
         // open main page
-        WelcomePage welcomePage = new WelcomePage(driver, log);
-        welcomePage.openPage();
+        WelcomePage welcomeP = new WelcomePage(driver, log);
+        welcomeP.openPage();
 
         // Click on JavaScript Alerts link
-        JavaScriptAlertsPage alertsPage = welcomePage.clickJavaScriptAlertsLink();
+        JavaScriptAlertsPage alertsP = welcomeP.clickJavaScriptAlertsLink();
 
         // Click JS Alert button
-        alertsPage.openJSAlert();
+        alertsP .openJSAlert();
         sleep(1000);
 
         // Get alert text
-        String alertMessage = alertsPage.getAlertText();
+        String alertMsg = alertsP.getAlertText();
 
         // Click OK button
-        alertsPage.acceptAlert();
+        alertsP.acceptAlert();
 
         // Get Results text
-        String result = alertsPage.getResultText();
+        String result = alertsP.getResultText();
         sleep(1000);
 
         //Verifications
         //1 - Alert text is expected
-        softAssert.assertTrue(alertMessage.equals("I am a JS Alert"),
-                "Alert message is not expected. \nShould be 'I am a JS Alert', but it is '" + alertMessage + "'");
+        softAssert.assertTrue(alertMsg.equals("I am a JS Alert"),
+                "Alert message is not expected. \nShould be 'I am a JS Alert', but it is '" + alertMsg + "'");
 
         //2 - Result text is expected
         softAssert.assertTrue(result.equals("You successfuly clicked an alert"),
@@ -51,30 +50,30 @@ public class AlertsTests extends TestUtilities {
         SoftAssert softAssert = new SoftAssert();
 
         // open main page
-        WelcomePage welcomePage = new WelcomePage(driver, log);
-        welcomePage.openPage();
+        WelcomePage welcomeP = new WelcomePage(driver, log);
+        welcomeP.openPage();
 
         // Click on JavaScript Alerts link
-        JavaScriptAlertsPage alertsPage = welcomePage.clickJavaScriptAlertsLink();
+        JavaScriptAlertsPage alertsP = welcomeP.clickJavaScriptAlertsLink();
 
         // Click JS Confirm button
-        alertsPage.openJSConfirm();
+        alertsP.openJSConfirm();
         sleep(1000);
 
         // Get alert text
-        String alertMessage = alertsPage.getAlertText();
+        String alertMsg = alertsP.getAlertText();
 
         // Click Cancel button
-        alertsPage.dismissAlert();
+        alertsP.dismissAlert();
 
         // Get Results text
-        String result = alertsPage.getResultText();
+        String result = alertsP.getResultText();
         sleep(1000);
 
         // Verifications
         // 1 - Alert text is expected
-        softAssert.assertTrue(alertMessage.equals("I am a JS Confirm"),
-                "Alert message is not expected. \nShould be 'I am a JS Confirm', but it is '" + alertMessage + "'");
+        softAssert.assertTrue(alertMsg.equals("I am a JS Confirm"),
+                "Alert message is not expected. \nShould be 'I am a JS Confirm', but it is '" + alertMsg + "'");
 
         // 2 - Result text is expected
         softAssert.assertTrue(result.equals("You clicked: Cancel"),
@@ -88,35 +87,35 @@ public class AlertsTests extends TestUtilities {
         SoftAssert softAssert = new SoftAssert();
 
         // open main page
-        WelcomePage welcomePage = new WelcomePage(driver, log);
-        welcomePage.openPage();
+        WelcomePage welcomeP = new WelcomePage(driver, log);
+        welcomeP.openPage();
 
         // Click on JavaScript Alerts link
-        JavaScriptAlertsPage alertsPage = welcomePage.clickJavaScriptAlertsLink();
+        JavaScriptAlertsPage alertsP = welcomeP.clickJavaScriptAlertsLink();
 
         // Click JS Prompt button
-        alertsPage.openJSPrompt();
+        alertsP.openJSPrompt();
         sleep(1000);
 
         // Get alert text
-        String alertMessage = alertsPage.getAlertText();
+        String alertMsg = alertsP.getAlertText();
 
         // Type text into alert
-        alertsPage.typeTextIntoAlert("Hello Alert, it's Micgael here");
+        alertsP.typeTextIntoAlert("Hello Alert, it's Micgael here");
         sleep(1000);
         // Get Results text
-        String result = alertsPage.getResultText();
+        String result = alertsP.getResultText();
         sleep(1000);
 
         // Verifications
         // 1 - Alert text is expected
-        softAssert.assertTrue(alertMessage.equals("I am a JS prompt"),
-                "Alert message is not expected. \nShould be 'I am a JS prompt', but it is '" + alertMessage + "'");
+        softAssert.assertTrue(alertMsg.equals("I am a JS prompt"),
+                "Alert message is not expected. \nShould be 'I am a JS prompt', but it is '" + alertMsg + "'");
 
         // 2 - Result text is expected
         softAssert.assertTrue(result.equals("You entered: Hello Alert, it's Micgael here"),
-                "result is not expected. \nShould be 'You entered: Hello Alert, its Dmitry here', but it is '" + result
-                        + "'");
+                "result is not expected. \nShould be 'You entered: Hello Alert, its Dmitry here', but it is '"
+                        + result + "'");
 
         softAssert.assertAll();
     }

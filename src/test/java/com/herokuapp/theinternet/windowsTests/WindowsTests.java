@@ -14,18 +14,18 @@ public class WindowsTests extends TestUtilities {
         log.info("Starting newWindowTest");
 
         // open main page
-        WelcomePage welcomePage = new WelcomePage(driver, log);
-        welcomePage.openPage();
+        WelcomePage welcomeP = new WelcomePage(driver, log);
+        welcomeP.openPage();
 
         // Click on MultipleWindows link
-        WindowPage01 windowsPage = welcomePage.clickMultipleWindowsLink();
+        WindowPage01 windowsP01= welcomeP.clickMultipleWindowsLink();
 
         // Click 'Click Here' link to open new window
-        windowsPage.openNewWindow();
+        windowsP01.openNewWindow();
         sleep(1000);
 
         // Find and switch to new window page
-        WindowPage02 newWindowPage = windowsPage.switchToNewWindowPage();
+        WindowPage02 newWindowPage = windowsP01.switchToNewWindowPage();
 
         String pageSource = newWindowPage.getCurrentPageSource();
 

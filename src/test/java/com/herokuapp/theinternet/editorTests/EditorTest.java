@@ -22,10 +22,10 @@ public class EditorTest extends TestUtilities {
         sleep(5000);
 
         // Click on WYSIWYG Editor link
-        EditorPage editorPage = welcomeP.clickWYSIWYGEditorLink();
+        EditorPage editorP = welcomeP.clickWYSIWYGEditorLink();
 
         // Get default editor text
-        String editorText = editorPage.getEditorText();
+        String editorText = editorP.getEditorText();
 
         // Verification that new page contains expected text in source
         Assert.assertTrue(editorText.equals("Your content goes here."),

@@ -21,10 +21,10 @@ public class DragDropTest extends TestUtilities {
         sleep(5000);
 
         // Verify correct headers in correct boxes
-        String columnAText = dragDropP.getColumnAText();
-        Assert.assertTrue(columnAText.equals("B"), "Column A header should be B, but it is: " + columnAText);
+        String colAText = dragDropP.getColumnAText();
+        Assert.assertTrue(colAText.equals("B"), "Column A header should be B, but it is: " + colAText);
 
-        String columnBText = dragDropP.getColumnBText();
-        Assert.assertTrue(columnBText.equals("A"), "Column A header should be B, but it is: " + columnBText);
+        String colBText = dragDropP.getColumnBText();
+        Assert.assertTrue(colBText.equals("A"), "Column A header should be B, but it is: " + colBText);
     }
 }

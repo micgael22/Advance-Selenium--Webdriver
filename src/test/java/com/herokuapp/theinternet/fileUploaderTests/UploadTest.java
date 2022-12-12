@@ -12,18 +12,18 @@ public class UploadTest extends TestUtilities {
         log.info("Starting fileUploadTest #" + no + " for " + fileName);
 
         // open File Uploader Page
-        FileUploaderPage fileUploaderPage = new FileUploaderPage(driver, log);
-        fileUploaderPage.openPage();
+        FileUploaderPage fileUploaderP = new FileUploaderPage(driver, log);
+        fileUploaderP.openPage();
 
         // Select file
 //        String fileName = "logo.png";
-        fileUploaderPage.selectFile(fileName);
+        fileUploaderP.selectFile(fileName);
 
         // Push upload button
-        fileUploaderPage.pushUploadButton();
+        fileUploaderP.pushUploadButton();
 
         // Get uploaded files
-        String fileNames = fileUploaderPage.getUploadedFilesNames();
+        String fileNames = fileUploaderP.getUploadedFilesNames();
 
         // Verify selected file uploaded
         Assert.assertTrue(fileNames.contains(fileName),

@@ -19,7 +19,7 @@ public class NegativeLoginTests extends TestUtilities {
 		String no = testData.get("no");
 		String username  = testData.get("username");
 		String password = testData.get("password");
-		String expectedErrorMessage = testData.get("expectedMessage");
+		String expectedErrorMsg = testData.get("expectedMessage");
 		String description = testData.get("description");
 
 		log.info("Starting negativeLogInTest #" + no + " for " + description);
@@ -38,7 +38,8 @@ public class NegativeLoginTests extends TestUtilities {
 		String message = loginP.getErrorMessageText();
 
 		// Verification
-		Assert.assertTrue(message.contains(expectedErrorMessage), "Message doesn't contain expected text.");
+		Assert.assertTrue(message.contains(expectedErrorMsg),
+				"Message doesn't contain expected text.");
 
 		System.out.println("ENDING NEGATIVE LOGIN TEST ---------------------------------->");
 	}
