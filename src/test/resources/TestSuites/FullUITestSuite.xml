@@ -3,54 +3,178 @@
 
 <suite name="FullTestSuite" verbose="1" parallel="tests" thread-count="4">
 
-    <test name="PositiveLoginTest-CH">
+    <test name="AlertsTests">
+        <classes>
+            <class name="com.herokuapp.theinternet.alertsTests.AlertsTests"></class>
+        </classes>
+    </test>
+
+    <test name="CheckboxesTests">
+        <classes>
+            <class name="com.herokuapp.theinternet.checkBoxesPageTests.CheckBoxesTests"></class>
+        </classes>
+    </test>
+
+    <test name="CheckboxesTests-Android">
+        <parameter name="deviceName" value="iPad Mini"></parameter>
+        <classes>
+            <class name="com.herokuapp.theinternet.checkBoxesPageTests.CheckBoxesTests" />
+        </classes>
+    </test>
+
+    <test name="CheckboxesTests-iOS">
+        <parameter name="deviceName" value="iPhone SE"></parameter>
+        <classes>
+            <class name="com.herokuapp.theinternet.checkBoxesPageTests.CheckBoxesTests" />
+        </classes>
+    </test>
+
+    <test name="DragAndDropTest-CH">
         <parameter name="browser" value="chrome"></parameter>
+        <classes>
+            <class name="com.herokuapp.theinternet.dragDropTests.DragDropTest">
+            </class>
+        </classes>
+    </test>
+
+    <test name="DragAndDropTest-FF">
+        <parameter name="browser" value="firefox"></parameter>
+        <classes>
+            <class name="com.herokuapp.theinternet.dragDropTests.DragDropTest">
+            </class>
+        </classes>
+    </test>
+
+    <test name="DropdownTests">
+        <classes>
+            <class name="com.herokuapp.theinternet.dropdownTests.DropDownTest"></class>
+        </classes>
+    </test>
+
+    <test name="Editor Test">
+        <classes>
+            <class name="com.herokuapp.theinternet.editorTests.EditorTest" />
+        </classes>
+    </test>
+
+    <test name="HorizontalSliderTest-CH">
+        <parameter name="browser" value="chrome"></parameter>
+        <classes>
+            <class name="com.herokuapp.theinternet.horizontalSliderTests.HorizontalSliderTest">
+            </class>
+        </classes>
+    </test>
+
+    <test name="HorizontalSliderTes-FF">
+        <parameter name="browser" value="firefox"></parameter>
+        <classes>
+            <class name="com.herokuapp.theinternet.horizontalSliderTests.HorizontalSliderTest">
+            </class>
+        </classes>
+    </test>
+
+    <test name="HoversTest-CH">
+        <parameter name="browser" value="chrome"></parameter>
+        <classes>
+            <class name="com.herokuapp.theinternet.hoversTests.HoversTest">
+            </class>
+        </classes>
+    </test>
+
+    <test name="HoversTest-FF">
+        <parameter name="browser" value="firefox"></parameter>
+        <classes>
+            <class name="com.herokuapp.theinternet.hoversTests.HoversTest">
+            </class>
+        </classes>
+    </test>
+
+    <test name="JSErrorTest">
+        <classes>
+            <class name="com.herokuapp.theinternet.jsErrorTests.JSErrorTest"></class>
+        </classes>
+    </test>
+
+    <test name="KeyPressesTest-CH">
+        <parameter name="browser" value="chrome"></parameter>
+        <classes>
+            <class name="com.herokuapp.theinternet.keypressTests.KeyPressTest">
+                <methods>
+                    <include name="pressKeyWithActions"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="KeyPressesTest-FF">
+        <parameter name="browser" value="firefox"></parameter>
+        <classes>
+            <class name="com.herokuapp.theinternet.keypressTests.KeyPressTest">
+                <!--				<methods>-->
+                <!--					<exclude name="pressKeyWithActions"></exclude>-->
+                <!--				</methods>-->
+            </class>
+        </classes>
+    </test>
+
+    <test name="NegativeLogInTest-CH">
+        <parameter name="browser" value="chrome"></parameter>
+        <classes>
+            <class name="com.herokuapp.theinternet.loginTest.NegativeLoginTests">
+            </class>
+        </classes>
+    </test>
+
+    <test name="PositiveLogInTest-CCWithoutP">
         <classes>
             <class name="com.herokuapp.theinternet.loginTest.PositiveLoginTests" />
         </classes>
     </test>
 
-    <test name="NegativeUsernameTest-CH">
-        <parameter name="username" value="incorrectUsername"></parameter>
-        <parameter name="password" value="SuperSecretPassword!"></parameter>
-        <parameter name="expectedMessage" value="Your username is invalid!"></parameter>
-        <parameter name="browser" value="chrome"></parameter>
+    <test name="PositiveLogInTest-CCWithP">
+        <parameter name="chromeProfile" value="ChromeProfile"></parameter>
         <classes>
-            <class name="com.herokuapp.theinternet.loginTest.NegativeLoginTests">
-            </class>
+            <class name="com.herokuapp.theinternet.loginTest.PositiveLoginTests" />
         </classes>
     </test>
 
-    <test name="NegativeUsernameTest-FF">
-        <parameter name="username" value="incorrectUsername"></parameter>
-        <parameter name="password" value="SuperSecretPassword!"></parameter>
-        <parameter name="expectedMessage" value="Your username is invalid!"></parameter>
-        <parameter name="browser" value="firefox"></parameter>
+    <test name="Upload Test">
         <classes>
-            <class name="com.herokuapp.theinternet.loginTest.NegativeLoginTests">
-            </class>
+            <class name="com.herokuapp.theinternet.fileUploaderTests.UploadTest" />
         </classes>
     </test>
 
-    <test name="NegativePasswordTest-CH">
-        <parameter name="username" value="tomsmith"></parameter>
-        <parameter name="password" value="incorrectPassword"></parameter>
-        <parameter name="expectedMessage" value="Your password is invalid!"></parameter>
-        <parameter name="browser" value="chrome"></parameter>
+    <test name="UploadTest-CH">
+        <parameter name="browser" value="chromeheadless"></parameter>
         <classes>
-            <class name="com.herokuapp.theinternet.loginTest.NegativeLoginTests">
-            </class>
+            <class name="com.herokuapp.theinternet.fileUploaderTests.UploadTest" />
         </classes>
     </test>
 
-    <test name="NegativePasswordTest-FF">
-        <parameter name="username" value="tomsmith"></parameter>
-        <parameter name="password" value="incorrectPassword"></parameter>
-        <parameter name="expectedMessage" value="Your password is invalid!"></parameter>
-        <parameter name="browser" value="firefox"></parameter>
+    <test name="UploadTests-FF">
+        <parameter name="browser" value="firefoxheadless"></parameter>
         <classes>
-            <class name="com.herokuapp.theinternet.loginTest.NegativeLoginTests">
-            </class>
+            <class name="com.herokuapp.theinternet.fileUploaderTests.UploadTest" />
+        </classes>
+    </test>
+
+    <test name="UploadTest-PH">
+        <parameter name="browser" value="phantomjs"></parameter>
+        <classes>
+            <class name="com.herokuapp.theinternet.fileUploaderTests.UploadTest" />
+        </classes>
+    </test>
+
+    <test name="UploadTest-UN">
+        <parameter name="browser" value="htmlunit"></parameter>
+        <classes>
+            <class name="com.herokuapp.theinternet.fileUploaderTests.UploadTest" />
+        </classes>
+    </test>
+
+    <test name="Windows Test">
+        <classes>
+            <class name="com.herokuapp.theinternet.windowsTests.WindowsTests" />
         </classes>
     </test>
 
