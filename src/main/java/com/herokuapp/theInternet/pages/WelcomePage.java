@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 public class WelcomePage extends BasePageObject {
 
     private String pageUrl = "http://the-internet.herokuapp.com/";
-    private By formAuthenticationLinkLocator = new By.ByLinkText("Form Authentication");
+    private By formAuthenticLinkLocator = new By.ByLinkText("Form Authentication");
     private By checkboxesLinkLocator = By.linkText("Checkboxes");
     private By dropdownLinkLocator = By.linkText("Dropdown");
     private By javaScriptAlertsLinkLocator = By.linkText("JavaScript Alerts");
@@ -28,7 +28,7 @@ public class WelcomePage extends BasePageObject {
     //Open LoginPage by Clicking on Form Authentication Link
     public LoginPage clickFormAuthenticationLink() {
         log.info("Clicking Form Authentication link on Welcome Page");
-        click(formAuthenticationLinkLocator);
+        click(formAuthenticLinkLocator);
         return new LoginPage(driver, log);
     }
 

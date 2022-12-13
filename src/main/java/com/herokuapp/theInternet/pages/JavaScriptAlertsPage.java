@@ -6,10 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class JavaScriptAlertsPage extends BasePageObject{
-
-    private By clickForJSAlertButtonLocator = By.xpath("//button[text()='Click for JS Alert']");
-    private By clickForJSConfirmButtonLocator = By.xpath("//button[text()='Click for JS Confirm']");
-    private By clickForJSPromptButtonLocator = By.xpath("//button[text()='Click for JS Prompt']");
+    private By clickJSAlertBLocator = By.xpath("//button[text()='Click for JS Alert']");
+    private By clickJSConfirmBLocator = By.xpath("//button[text()='Click for JS Confirm']");
+    private By clickJSPromptBLocator = By.xpath("//button[text()='Click for JS Prompt']");
     private By resultTextLocator = By.id("result");
 
 
@@ -20,19 +19,19 @@ public class JavaScriptAlertsPage extends BasePageObject{
     //Clicking on 'Click for JS Alert' button to open alert
     public void openJSAlert() {
         log.info("Clicking on 'Click for JS Alert' button to open alert");
-        click(clickForJSAlertButtonLocator);
+        click(clickJSAlertBLocator);
     }
 
     // Clicking on 'Click for JS Confirm' button to open alert
     public void openJSConfirm() {
         log.info("Clicking on 'Click for JS Confirm' button to open alert");
-        click(clickForJSConfirmButtonLocator);
+        click(clickJSConfirmBLocator);
     }
 
     // Clicking on 'Click for JS Prompt' button to open alert
     public void openJSPrompt() {
         log.info("Clicking on 'Click for JS Prompt' button to open alert");
-        click(clickForJSPromptButtonLocator);
+        click(clickJSPromptBLocator);
     }
 
     // Switch to alert and get its message

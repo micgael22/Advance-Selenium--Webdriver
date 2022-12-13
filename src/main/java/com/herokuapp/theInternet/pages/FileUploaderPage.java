@@ -5,11 +5,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class FileUploaderPage extends BasePageObject{
-
     private String pageUrl = "http://the-internet.herokuapp.com/upload";
-    private By uploadButtonLocator = By.id("file-submit");
-    private By choseFileFieldLocator = By.id("file-upload");
-    private By uploadedFilesLocator = By.id("uploaded-files");
+    private By uploadBLocator = By.id("file-submit");
+    private By choseFileLocator = By.id("file-upload");
+    private By uploadFilesLocator = By.id("uploaded-files");
 
     public FileUploaderPage(WebDriver driver, Logger log) {
         super(driver, log);
@@ -25,7 +24,7 @@ public class FileUploaderPage extends BasePageObject{
     // Push Upload button
     public void pushUploadButton() {
         log.info("Clicking on upload button");
-        click(uploadButtonLocator);
+        click(uploadBLocator);
     }
 
     // Push Upload button
@@ -34,13 +33,13 @@ public class FileUploaderPage extends BasePageObject{
         // Selecting file
         // String filePath = "path";
         String filePath = System.getProperty("user.dir") + "/src/main/resources/files/" + fileName;
-        type(filePath, choseFileFieldLocator);
+        type(filePath, choseFileLocator);
         log.info("File selected");
     }
 
     // Get names of uploaded files
     public String getUploadedFilesNames() {
-        String names = find(uploadedFilesLocator).getText();
+        String names = find(uploadFilesLocator).getText();
         log.info("Uploaded files: " + names);
         return names;
     }
